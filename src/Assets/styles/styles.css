@@ -1,0 +1,289 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+:root {
+  --primary-color: #6431f4;
+}
+p,
+a,
+span,
+li {
+  font-family: "Roboto", sans-serif;
+}
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.navbar {
+  padding: 17px 0;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+.nav-links {
+  gap: 15px;
+}
+
+.nav-item a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  display: inline-block;
+  padding: 11px 25px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  line-height: auto;
+  width: fit-content;
+  transition: all 0.3s ease-out;
+}
+.btn.btn-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.btn.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+.btn.btn-outline-primary {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+.primary {
+  color: var(--primary-color);
+}
+.small-text {
+  font-size: 14px;
+  font-weight: 550;
+}
+.black-3 {
+  color: #333;
+}
+.header-text {
+  font-size: 34px;
+  font-weight: 550;
+}
+.banner-text {
+  padding-right: 75px;
+}
+.banner-text > * {
+  margin-bottom: 20px;
+}
+.banner-text > *:last-child {
+  margin-bottom: 0;
+}
+.banner-home {
+  height: calc(100vh - 80px);
+}
+.navbarcontainer {
+  background-color: #fff;
+}
+
+.header-section {
+  padding-bottom: 25px;
+}
+
+.eachtherapist {
+  box-shadow: 0 0 7px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+.eachtherapist .eachtherapist-header {
+  padding: 15px 25px 0 25px;
+  position: relative;
+}
+.eachtherapist .eachtherapist-header .rating-info {
+  text-align: right;
+}
+.eachtherapist .eachtherapist-header .rating-info i {
+  color: gold;
+  margin-right: 5px;
+  font-size: 17px;
+}
+
+.eachtherapist .eachtherapist-header .rating-info span {
+  font-weight: 600;
+  color: #444;
+}
+:root {
+  --img-size: 115px;
+}
+
+.eachtherapist .eachtherapist-header img {
+  width: var(--img-size);
+  border-radius: 100%;
+  height: var(--img-size);
+}
+.eachtherapist .eachtherapist-header h3 {
+  color: #222;
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 23px;
+}
+.eachtherapist .eachtherapist-header p {
+  color: #777;
+  margin-bottom: 0;
+}
+
+.eachtherapist .eachtherapist-body {
+  padding: 0 35px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.eachtherapist .eachtherapist-body ul li {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 20px;
+  color: #333;
+  line-height: 0;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+.eachtherapist .eachtherapist-body ul {
+  text-align: center;
+  padding: 10px 0;
+}
+.eachtherapist .eachtherapist-body ul li:first-child {
+  padding-left: 0;
+}
+.eachtherapist .eachtherapist-body ul li:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+.eachtherapist .eachtherapist-body .price span {
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+}
+
+.eachtherapist .eachtherapist-body .price {
+  color: #444;
+  font-size: 14px;
+}
+
+.eachtherapist .eachtherapist-footer {
+  padding: 15px;
+  text-align: right;
+}
+footer {
+  margin-top: 25px;
+}
+footer p {
+  font-size: 14px;
+  color: #555;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 15px 0;
+  text-align: center;
+  margin: 0;
+}
+
+.fullscreen-wrapper {
+  height: calc(100vh - 140px);
+}
+.form-container {
+  padding: 35px;
+  border-radius: 8px;
+  flex: 1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-container .btn {
+  width: fit-content;
+}
+
+.form-container p:last-child {
+  margin: 0;
+  font-size: 14px;
+  margin-top: 15px;
+}
+.form-container p:last-child a {
+  font-weight: 600;
+  margin-left: 5px;
+  font-size: 18px;
+  color: var(--primary-color);
+}
+.signupas {
+  margin-top: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+  padding: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.signupas:hover {
+  transform: scale(1.04);
+}
+.signupas img {
+  width: 350px;
+  height: 350px;
+}
+
+.signupas p {
+  font-size: 26px;
+}
+
+.insertimage input {
+  display: none;
+}
+
+.insertimage {
+  text-align: center;
+  display: flex;
+}
+.insertimage .image-container {
+  position: relative;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.insertimage .image-container label {
+  color: #fff;
+  display: block;
+  width: fit-content;
+  border-radius: 8px;
+  margin: 5px 0;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 16px;
+  background-color: var(--primary-color);
+}
+
+.insertimage .image-container img {
+  width: 95px;
+  height: 95px;
+  border-radius: 100%;
+}
+.flex-gap-y {
+  row-gap: 20px;
+}
