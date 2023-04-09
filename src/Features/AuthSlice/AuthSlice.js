@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { login, register } from "./AuthAPI";
-
+import { toast } from "react-toastify";
 const initialState = {
   isLoading: false,
   isLoggedIn: false,
@@ -62,6 +62,7 @@ const AuthSlice = createSlice({
       })
       .addCase(registerFn.fulfilled, (state, action) => {
         state.isLoading = false;
+        toast.success("User Registered Successfully");
       })
       .addCase(registerFn.rejected, (state, action) => {
         state.isLoading = false;

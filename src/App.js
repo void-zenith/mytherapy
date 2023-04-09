@@ -10,9 +10,7 @@ function App() {
   // }, [dispatch]);
   return (
     <div className="App">
-      <Navbarhome />
       <AppRouter />
-      <Footer />
     </div>
   );
 }

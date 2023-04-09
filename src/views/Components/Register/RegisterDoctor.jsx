@@ -1,15 +1,38 @@
 import React, { useState, useRef } from "react";
 import { Form, Row, Col, Overlay, Tooltip } from "react-bootstrap";
 import { useDispatch } from "react-redux";
+import { registerFn } from "../../../Features/AuthSlice/AuthSlice";
 import { unSelectRegisterOption } from "../../../Features/ViewSlice";
 import insertImage from "../../../Assets/Img/insertimage.png";
+import { useNavigate } from "react-router";
 const RegisterDoctor = () => {
-  const handleChange = (e) => {};
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const target = useRef(null);
   const goBack = () => {
     dispatch(unSelectRegisterOption());
+  };
+
+  const [registerDetails, setRegisterDetails] = useState({
+    firstname: "",
+    lastname: "",
+    dob: "",
+    gender: "",
+    address: "",
+    phone: "",
+    email: "",
+    password: "",
+  });
+  const handleChange = (e) => {
+    setRegisterDetails({
+      ...registerDetails,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const [documentHandle, setDocumentHandle] = useState();
+  const handleDocument = (e) => {
+    setDocumentHandle(e.target.files[0]);
   };
   const [imageHandle, setImageHandle] = useState();
   const [imageUrl, setImageUrl] = useState("");
@@ -18,12 +41,29 @@ const RegisterDoctor = () => {
   };
   const handleImage = (e) => {
     let files = e.target.files[0];
-    // new Compressor(files, {
-    //   quality: 0.8,
-    //   success: (compressedResult) => {
     setImageHandle(files);
-    //   },
-    // });
+  };
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const allregisterDetails = new FormData();
+    allregisterDetails.append("first_name", registerDetails.firstname);
+    allregisterDetails.append("last_name", registerDetails.lastname);
+    allregisterDetails.append("user_email", registerDetails.email);
+    allregisterDetails.append("gender", registerDetails.gender);
+    allregisterDetails.append("address", registerDetails.address);
+    allregisterDetails.append("phone", registerDetails.phone);
+    allregisterDetails.append("DOB", registerDetails.dob);
+    allregisterDetails.append("user_type", "Therapist");
+    allregisterDetails.append("password", registerDetails.password);
+    allregisterDetails.append("image", imageHandle);
+    allregisterDetails.append("document", documentHandle);
+    dispatch(registerFn({ allregisterDetails })).then((res) => {
+      if (res.payload.status === 200) {
+        navigate("/login", {
+          replace: true,
+        });
+      }
+    });
   };
   return (
     <Row className="mt-4 justify-content-between ">
@@ -31,7 +71,10 @@ const RegisterDoctor = () => {
         Go Back
       </div>
       <Col md={12} className="mt-2 d-flex align-items-center">
-        <Form className="form-container d-flex flex-column">
+        <Form
+          className="form-container d-flex flex-column"
+          onSubmit={handleRegister}
+        >
           <h1>Sign Up As Therapist</h1>
           <p>Sign up into our application as a therapist to help patients.</p>
           <Row>
@@ -182,7 +225,7 @@ const RegisterDoctor = () => {
                   required
                   multiple
                   type="file"
-                  onChange={handleChange}
+                  onChange={handleDocument}
                   name="file"
                 ></Form.Control>
                 <Form.Control.Feedback type="invalid">

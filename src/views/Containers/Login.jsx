@@ -40,7 +40,7 @@ const Login = () => {
             />
           </Col>
           <Col md={6}>
-            <img src={bgimg} />
+            <img src={bgimg} alt="login"/>
           </Col>
         </Row>
       </Container>

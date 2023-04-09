@@ -7,7 +7,7 @@ const EachTherapy = ({ item }) => {
       <div className="eachtherapist">
         <div className="eachtherapist-header text-center">
           <div className="rating-info">
-            <i class="bi bi-star"></i> <span>4.5</span>
+            <i className="bi bi-star"></i> <span>4.5</span>
           </div>
           <Link to={`/therapist/${item.id}`}>
             <img src={item.img} alt={item.therapistName} />
@@ -21,17 +21,17 @@ const EachTherapy = ({ item }) => {
           <ul className="meetingOptions">
             <li>
               <Link to={`/therapist/${item.id}`}>
-                <i class="bi bi-camera-video"></i>
+                <i className="bi bi-camera-video"></i>
               </Link>
             </li>
             <li>
               <Link to={`/therapist/${item.id}`}>
-                <i class="bi bi-telephone"></i>
+                <i className="bi bi-telephone"></i>
               </Link>
             </li>
             <li>
               <Link to={`/therapist/${item.id}`}>
-                <i class="bi bi-geo-alt"></i>
+                <i className="bi bi-geo-alt"></i>
               </Link>
             </li>
           </ul>
