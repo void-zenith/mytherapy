@@ -4,16 +4,18 @@ import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import thunk from "redux-thunk";
 import authReducer from "./Features/AuthSlice/AuthSlice";
+import userReducer from "./Features/UserSlice/UserSlice";
 import viewReducer from "./Features/ViewSlice";
 const reducers = combineReducers({
   auth: authReducer,
   view: viewReducer,
+  user: userReducer,
 });
 
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["view"],
+  blacklist: ["view", "user"],
 };
 
 const persistededucer = persistReducer(persistConfig, reducers);
