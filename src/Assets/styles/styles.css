@@ -186,17 +186,15 @@ ul {
   color: #333;
   font-weight: 600;
 }
-
 .eachtherapist .eachtherapist-body .price {
   color: #444;
   font-size: 14px;
 }
-
 .eachtherapist .eachtherapist-footer {
   padding: 15px;
   text-align: right;
 }
-footer {
+footer:not(.main-footer) {
   margin-top: 25px;
 }
 footer p {
@@ -286,4 +284,74 @@ footer p {
 }
 .flex-gap-y {
   row-gap: 20px;
+}
+.view-contentwrapper > a.btn {
+  display: block;
+  width: fit-content;
+  margin-top: 10px;
+}
+
+.view-contentwrapper img {
+  width: 350px;
+}
+.ctabtns-container {
+  display: flex;
+  gap: 10px;
+}
+.therapist-information > img {
+  width: 250px;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.additem-container {
+  padding: 35px 0;
+}
+
+.metainfo {
+  margin: 15px 0;
+}
+.myprofile-content > img {
+  width: 350px;
+}
+.myprofile-content > h3 {
+  margin-top: 15px;
+}
+.eachmetainfo:not(:last-child) {
+  margin-bottom: 10px;
+}
+.eachmetainfo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.eachmetainfo p {
+  margin: 0;
+}
+.eachbooking-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 14px;
+  background-color: #f3f3f3;
+}
+.eachbooking-container:not(:last-child) {
+  margin-bottom: 15px;
+}
+.eachbooking-container .image-container img {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+}
+
+.eachbooking-content span {
+  padding: 5px 20px;
+  border-radius: 14px;
+  background-color: skyblue;
+}
+.eachbooking-content h3 {
+  margin-top: 5px;
+}
+.eachbooking-content p {
+  margin: 0;
 }

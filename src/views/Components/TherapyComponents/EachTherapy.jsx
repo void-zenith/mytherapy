@@ -9,28 +9,28 @@ const EachTherapy = ({ item }) => {
           <div className="rating-info">
             <i className="bi bi-star"></i> <span>4.5</span>
           </div>
-          <Link to={`/therapist/${item.id}`}>
-            <img src={item.img} alt={item.therapistName} />
+          <Link to={`/therapist/${item.user_id}`}>
+            {item.image && <img src={item.image.img_src} alt={item.username} />}
           </Link>
           <h3>
-            <Link to={`/therapist/${item.id}`}>{item.therapistName}</Link>
+            <Link to={`/therapist/${item.user_id}`}>{item.username}</Link>
           </h3>
           <p className="therapistPost">{item.therapistPost}</p>
         </div>
         <div className="eachtherapist-body">
           <ul className="meetingOptions">
             <li>
-              <Link to={`/therapist/${item.id}`}>
+              <Link to={`/therapist/${item.user_id}`}>
                 <i className="bi bi-camera-video"></i>
               </Link>
             </li>
             <li>
-              <Link to={`/therapist/${item.id}`}>
+              <Link to={`/therapist/${item.user_id}`}>
                 <i className="bi bi-telephone"></i>
               </Link>
             </li>
             <li>
-              <Link to={`/therapist/${item.id}`}>
+              <Link to={`/therapist/${item.user_id}`}>
                 <i className="bi bi-geo-alt"></i>
               </Link>
             </li>
@@ -40,7 +40,7 @@ const EachTherapy = ({ item }) => {
           </p>
         </div>
         <div className="eachtherapist-footer">
-          <Link to={`/therapist/${item.id}`} className="btn btn-primary">
+          <Link to={`/therapist/${item.user_id}`} className="btn btn-primary">
             Book Now
           </Link>
         </div>

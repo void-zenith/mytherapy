@@ -4,6 +4,7 @@ import Content from "../AdminComponent/Content";
 import DataTable from "react-data-table-component";
 import { useDispatch, useSelector } from "react-redux";
 import { allCustomerFn } from "../../../Features/UserSlice/UserSlice";
+import CTABtn from "../AdminComponent/CTABtn";
 const AllCustomer = () => {
   const dispatch = useDispatch();
   let token = useSelector((state) => state.auth.currentUser.token);
@@ -35,7 +36,7 @@ const AllCustomer = () => {
     {
       name: "Poster Button",
       button: true,
-      cell: () => <button>Download Poster</button>,
+      cell: (row) => <CTABtn from="user"  id={row.user_id}></CTABtn>,
     },
   ];
   let row = [];

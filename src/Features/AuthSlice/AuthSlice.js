@@ -51,11 +51,13 @@ const AuthSlice = createSlice({
         state.isLoading = false;
         state.isLoggedIn = true;
         state.currentUser = action.payload.data;
+        toast.success("Login Successful");
       })
       .addCase(loginFn.rejected, (state, action) => {
         state.isLoading = false;
         state.isLoggedIn = false;
         state.currentUser = "";
+        toast.error("Login Unsuccessful");
       })
       .addCase(registerFn.pending, (state, action) => {
         state.isLoading = true;

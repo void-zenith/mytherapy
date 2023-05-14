@@ -12,7 +12,6 @@ const RegisterUser = () => {
   const goBack = () => {
     dispatch(unSelectRegisterOption());
   };
-
   const [registerDetails, setRegisterDetails] = useState({
     firstname: "",
     lastname: "",

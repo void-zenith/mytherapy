@@ -23,6 +23,8 @@ const RegisterDoctor = () => {
     phone: "",
     email: "",
     password: "",
+    price: "",
+    description: "",
   });
   const handleChange = (e) => {
     setRegisterDetails({
@@ -57,6 +59,8 @@ const RegisterDoctor = () => {
     allregisterDetails.append("password", registerDetails.password);
     allregisterDetails.append("image", imageHandle);
     allregisterDetails.append("document", documentHandle);
+    allregisterDetails.append("price", registerDetails.price);
+    allregisterDetails.append("description", registerDetails.description);
     dispatch(registerFn({ allregisterDetails })).then((res) => {
       if (res.payload.status === 200) {
         navigate("/login", {
@@ -234,7 +238,34 @@ const RegisterDoctor = () => {
               </Form.Label>
             </Form.Group>
           </Row>
-
+          <Form.Group as={Col} md={12} controlId="validationCustomUsername">
+            <Form.Label className="w-100">
+              Price:
+              <Form.Control
+                required
+                type="text"
+                onChange={handleChange}
+                name="price"
+              ></Form.Control>
+              <Form.Control.Feedback type="invalid">
+                Please enter your price.
+              </Form.Control.Feedback>
+            </Form.Label>
+          </Form.Group>
+          <Form.Group as={Col} md={12} controlId="validationCustomUsername">
+            <Form.Label className="w-100">
+              Describe yourself:
+              <Form.Control
+                required
+                as="textarea"
+                onChange={handleChange}
+                name="description"
+              ></Form.Control>
+              <Form.Control.Feedback type="invalid">
+                Please enter your price.
+              </Form.Control.Feedback>
+            </Form.Label>
+          </Form.Group>
           <Form.Group as={Col} md={12} controlId="validationCustomUsername">
             <Form.Label className="w-100">
               Email:

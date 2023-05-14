@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 import logo from "../../../Assets/Img/logo.png";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { logout } from "../../../Features/AuthSlice/AuthSlice";
 const Navbarhome = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   let isloggedIn = useSelector((state) => state.auth.isLoggedIn);
   const logoutFn = () => {
     dispatch(logout());
+    navigate("/");
   };
   return (
     <Navbar className="navbarcontainer" expand="lg" sticky="top">
@@ -24,7 +27,16 @@ const Navbarhome = () => {
             </Nav.Item>
             {isloggedIn ? (
               <>
-                logged in
+                <Nav.Item>
+                  <Link to="/mybookings" className="btn btn-outline-primary">
+                    My Bookings
+                  </Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Link to="/myprofile" className="btn btn-outline-primary">
+                    My profile
+                  </Link>
+                </Nav.Item>
                 <button onClick={logoutFn} className="btn btn-primary">
                   Logout
                 </button>
@@ -34,6 +46,12 @@ const Navbarhome = () => {
                 <Nav.Item>
                   <Link to="/login" className="btn btn-outline-primary">
                     Login
+                  </Link>
+                  <Link
+                    to="/adminlogin"
+                    className=" ml-2 btn btn-outline-primary "
+                  >
+                    Admin Login
                   </Link>
                 </Nav.Item>
                 <Nav.Item>
