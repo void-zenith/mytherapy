@@ -1,19 +1,27 @@
-import React, { useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Form, Row, Col, Overlay, Tooltip } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { registerFn } from "../../../Features/AuthSlice/AuthSlice";
 import { unSelectRegisterOption } from "../../../Features/ViewSlice";
 import insertImage from "../../../Assets/Img/insertimage.png";
 import { useNavigate } from "react-router";
+import { getOccupationFn } from "../../../Features/OccupationSlice/OccupationSlice";
 const RegisterDoctor = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  let alloccupation = useSelector(
+    (state) => state.occupation.occupationCollection
+  );
+  let token = useSelector((state) => state.auth?.currentUser?.token);
   const [show, setShow] = useState(false);
   const target = useRef(null);
   const goBack = () => {
     dispatch(unSelectRegisterOption());
   };
-
+  useEffect(() => {
+    dispatch(getOccupationFn({ token }));
+  }, [dispatch]);
+  const [occupationValue, setOccupation] = useState();
   const [registerDetails, setRegisterDetails] = useState({
     firstname: "",
     lastname: "",
@@ -32,6 +40,10 @@ const RegisterDoctor = () => {
       [e.target.name]: e.target.value,
     });
   };
+  const occupationChange = (e) => {
+    setOccupation(e.target.value);
+  };
+
   const [documentHandle, setDocumentHandle] = useState();
   const handleDocument = (e) => {
     setDocumentHandle(e.target.files[0]);
@@ -61,6 +73,7 @@ const RegisterDoctor = () => {
     allregisterDetails.append("document", documentHandle);
     allregisterDetails.append("price", registerDetails.price);
     allregisterDetails.append("description", registerDetails.description);
+    allregisterDetails.append("occupation", occupationValue);
     dispatch(registerFn({ allregisterDetails })).then((res) => {
       if (res.payload.status === 200) {
         navigate("/login", {
@@ -156,6 +169,7 @@ const RegisterDoctor = () => {
               <Form.Label className="w-100">
                 Gender:
                 <Form.Select>
+                  <option>Select Occupation</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                 </Form.Select>
@@ -185,7 +199,7 @@ const RegisterDoctor = () => {
                 Phone:
                 <Form.Control
                   required
-                  type="phone"
+                  type="number"
                   onChange={handleChange}
                   name="phone"
                 ></Form.Control>
@@ -199,11 +213,13 @@ const RegisterDoctor = () => {
             <Form.Group as={Col} md={6} controlId="validationCustomUsername">
               <Form.Label className="w-100">
                 Occupation:
-                <Form.Select required onChange={handleChange}>
-                  <option value="therapist">Therapist</option>
-                  <option value="Counselor">Counselor</option>
-                  <option value="psychologist">Psychologist</option>
-                  <option value="professor">Psychiatrist</option>
+                <Form.Select required onChange={occupationChange}>
+                  <option>Select Occupation</option>
+                  {alloccupation.map((item, id) => (
+                    <>
+                      <option value={item.occupation}>{item.occupation}</option>
+                    </>
+                  ))}
                 </Form.Select>
                 <Form.Control.Feedback type="invalid">
                   Please enter your file.

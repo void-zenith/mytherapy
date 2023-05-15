@@ -10,7 +10,7 @@ const SingleTherapy = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   let token = useSelector((state) => state.auth.currentUser.token);
-  let currentID = useSelector((state) => state.auth.currentUser.data.user_id);
+  let currentID = useSelector((state) => state.auth.currentUser?.data?.user_id);
   let selectedTherapist = useSelector((state) => state.user.selectedUser);
   let isLoading = useSelector((state) => state.user.isLoading);
   const [value, onChange] = useState(new Date());
@@ -42,24 +42,17 @@ const SingleTherapy = () => {
                           <img src={selectedTherapist.image.img_src} />
                         </>
                       )}
-                      <h2>{selectedTherapist.username}</h2>
-                      <p>counsellor</p>
+                      <h2>Name: {selectedTherapist.username}</h2>
+                      <p>
+                        Occupation:
+                        {selectedTherapist?.occupationuser?.occupation?.occupation}
+                      </p>
                     </div>
                     <div className="therapists-description">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Odio fugit, deserunt nobis consectetur beatae culpa
-                        consequatur nostrum facilis laboriosam doloremque
-                        aspernatur quibusdam ut rerum eligendi Lorem ipsum dolor
-                        sit amet consectetur adipisicing elit. Odio fugit,
-                        deserunt nobis consectetur beatae culpa consequatur
-                        nostrum facilis laboriosam doloremque aspernatur
-                        quibusdam ut rerum eligendi Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. Odio fugit, deserunt nobis
-                        consectetur beatae culpa consequatur nostrum facilis
-                        laboriosam doloremque aspernatur quibusdam ut rerum
-                        eligendi provident similique sit quisquam incidunt?
-                      </p>
+                      <p>Description: {selectedTherapist.description}</p>
+                    </div>
+                    <div className="therapist-price">
+                      <p>Price: {selectedTherapist.price}</p>
                     </div>
                     <div className="therapists-location">
                       iframe from google

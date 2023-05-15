@@ -16,6 +16,7 @@ import RoleContainer from "./views/Admin/AdminContainer/RoleContainer";
 import OccupationContainer from "./views/Admin/AdminContainer/OccupationContainer";
 import MyBookings from "./views/Pages/MyBookings";
 import Myprofile from "./views/Pages/Myprofile";
+import BookingSingle from "./views/Pages/BookingSingle";
 
 export const AllRoutes = {
   homeRoute: [
@@ -54,6 +55,12 @@ export const AllRoutes = {
       link: "/myprofile",
       label: "My Profile",
       component: <Myprofile />,
+      inNavBar: false,
+    },
+    {
+      link: "/singlebooking/:id",
+      label: "Single Booking",
+      component: <BookingSingle />,
       inNavBar: false,
     },
   ],

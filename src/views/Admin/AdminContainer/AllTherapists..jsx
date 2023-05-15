@@ -29,6 +29,11 @@ const AllTherapists = () => {
       selector: (row) => row.address,
     },
     {
+      id: "occupation",
+      name: "Occupation",
+      selector: (row) => row.occupationuser?.occupation?.occupation,
+    },
+    {
       id: "phone",
       name: "Phone",
       selector: (row) => row.phone,

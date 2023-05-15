@@ -44,7 +44,11 @@ const RoleContainer = () => {
   };
   const addRole = (e) => {
     e.preventDefault();
-    dispatch(addRoleFn({ token, rolename }));
+    dispatch(addRoleFn({ token, rolename })).then((res) => {
+      if (res.payload.status === 200) {
+        dispatch(getRoleFn({ token }));
+      }
+    });
   };
   return (
     <>

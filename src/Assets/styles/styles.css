@@ -355,3 +355,47 @@ footer p {
 .eachbooking-content p {
   margin: 0;
 }
+
+.myprofile-content {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.myprofile-content .content img {
+  height: 350px;
+  object-fit: contain;
+}
+.status {
+  border-radius: 16px;
+  padding: 5px 26px;
+  width: fit-content;
+}
+
+.status.pending {
+  background-color: rgb(237, 237, 20);
+}
+.status.completed {
+  color: #fff;
+  background-color: green;
+}
+.bookingsingle-updates ul li {
+  display: flex;
+}
+.bookingsingle-updates ul li > div span{
+  font-size: 18px;
+  font-weight: 500;
+}
+.bookingsingle-updates ul li > div:not(:first-child){
+  margin-left: 10px;
+}
+.bookingsingle-updates ul li > div:not(:last-child){
+  padding-right: 10px;
+  border-right: 1px solid rgba(0, 0, 0, 0.4);
+}
+.bookingsingle-body .btn{
+  display: block;
+  margin: 10px 0;
+}
+.bookingsingle-body > a{
+  color: var(--primary-color);
+  font-size: 20px;
+}
