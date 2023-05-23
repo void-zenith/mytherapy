@@ -279,7 +279,7 @@ const RegisterDoctor = () => {
                 name="description"
               ></Form.Control>
               <Form.Control.Feedback type="invalid">
-                Please enter your price.
+                Please describe yourself.
               </Form.Control.Feedback>
             </Form.Label>
           </Form.Group>

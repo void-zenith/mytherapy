@@ -43,7 +43,11 @@ const BookingSingle = () => {
                   <a href="#" target="_blank">
                     https://meet.google.com/tqp-svzh-jxj
                   </a>
-                  <button onClick={handleCancel} className="btn btn-primary">Cancel booking</button>
+                  {selectedBooking.status && (
+                    <button onClick={handleCancel} className="btn btn-primary">
+                      Cancel booking
+                    </button>
+                  )}
                 </div>
               </div>
             )}

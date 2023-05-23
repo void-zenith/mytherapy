@@ -59,9 +59,6 @@ const SingleTherapy = () => {
                     <div className="therapist-price">
                       <p>Price: {selectedTherapist.price}</p>
                     </div>
-                    <div className="therapists-location">
-                      iframe from google
-                    </div>
                   </Col>
                   <Col md={4}>
                     <h2>Book Appointment</h2>

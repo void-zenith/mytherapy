@@ -16,7 +16,7 @@ export const cancelBooking = async (data) => {
   let headers = {
     authorization: `Bearer ${data.token}`,
   };
-  const res = await axios.patch(url, {
+  const res = await axios.put(url, {
     headers: headers,
   });
   return res;
