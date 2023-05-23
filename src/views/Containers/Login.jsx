@@ -22,10 +22,8 @@ const Login = () => {
       event.preventDefault();
       event.stopPropagation();
     } else {
-      console.log("herer");
       dispatch(loginFn(loginValue));
     }
-
     setValidated(true);
   };
   return (

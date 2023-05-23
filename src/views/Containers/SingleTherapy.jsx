@@ -24,6 +24,8 @@ const SingleTherapy = () => {
       therapist_id: id,
       type: "meet",
       time: value,
+      therapist_name: selectedTherapist.username,
+      therapist_img: selectedTherapist.image.img_src,
     };
     dispatch(createBookingFn({ token, body }));
   };
@@ -45,7 +47,10 @@ const SingleTherapy = () => {
                       <h2>Name: {selectedTherapist.username}</h2>
                       <p>
                         Occupation:
-                        {selectedTherapist?.occupationuser?.occupation?.occupation}
+                        {
+                          selectedTherapist?.occupationuser?.occupation
+                            ?.occupation
+                        }
                       </p>
                     </div>
                     <div className="therapists-description">

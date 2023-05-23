@@ -245,6 +245,7 @@ const RegisterDoctor = () => {
                   required
                   multiple
                   type="file"
+                  accept="application/pdf"
                   onChange={handleDocument}
                   name="file"
                 ></Form.Control>

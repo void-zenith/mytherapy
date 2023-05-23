@@ -23,7 +23,7 @@ const reducers = combineReducers({
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["prfile", "view", "user", "role", "booking", "occupation"],
+  blacklist: ["profile", "view", "user", "role", "booking", "occupation"],
 };
 
 const persistededucer = persistReducer(persistConfig, reducers);

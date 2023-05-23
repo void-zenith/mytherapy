@@ -8,6 +8,5 @@ export const login = async (data) => {
 
 export const register = async (data) => {
   let url = `${BASE_URL}/api/auth/register`;
-
   return await axios.post(url, data.allregisterDetails);
 };
