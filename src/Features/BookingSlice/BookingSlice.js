@@ -1,10 +1,27 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import { cancelBooking, createBooking, myBooking } from "./BookingAPI";
+import {
+  cancelBooking,
+  createBooking,
+  myBooking,
+  singleBooking,
+} from "./BookingAPI";
 const initialState = {
   isLoading: false,
-  myBooking: {},
+  myBooking: [],
+  singleBooking: {},
 };
+export const singleBookingFn = createAsyncThunk(
+  "booking/singleBookingFn",
+  async (data, { rejectWithValue }) => {
+    try {
+      return await singleBooking(data);
+    } catch (err) {
+      if (!err.response) throw err;
+      return rejectWithValue(err);
+    }
+  }
+);
 export const myBookingFn = createAsyncThunk(
   "booking/myBookingFn",
   async (data, { rejectWithValue }) => {
@@ -44,6 +61,16 @@ const BookingSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
+      .addCase(singleBookingFn.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(singleBookingFn.fulfilled, (state, action) => {
+        state.singleBooking = action.payload.data.data;
+        state.isLoading = false;
+      })
+      .addCase(singleBookingFn.rejected, (state, action) => {
+        state.isLoading = false;
+      })
       .addCase(myBookingFn.pending, (state) => {
         state.isLoading = true;
       })

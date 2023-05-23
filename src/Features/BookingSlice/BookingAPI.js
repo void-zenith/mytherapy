@@ -16,13 +16,23 @@ export const cancelBooking = async (data) => {
   let headers = {
     authorization: `Bearer ${data.token}`,
   };
-  const res = await axios.put(url, {
+  const res = await axios.patch(url, {
     headers: headers,
   });
   return res;
 };
 export const myBooking = async (data) => {
   let url = `${BASE_URL}/api/booking/mybookings`;
+  let headers = {
+    authorization: `Bearer ${data.token}`,
+  };
+  const res = await axios.get(url, {
+    headers: headers,
+  });
+  return res;
+};
+export const singleBooking = async (data) => {
+  let url = `${BASE_URL}/api/booking/getbooking/${data.id}`;
   let headers = {
     authorization: `Bearer ${data.token}`,
   };

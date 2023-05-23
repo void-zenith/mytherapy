@@ -12,7 +12,7 @@ const BannerContainer = () => {
             <h1 className="header-text primary">
               Our Experts are here to help with over 25+ years of experience.
             </h1>
-            <Link className="btn btn-outline-primary">Find Therapists</Link>
+            <Link to="/all-therapists" className="btn btn-outline-primary">Find Therapists</Link>
           </Col>
           <Col className="banner-img">
             <img src={bannerimg} alt="" />
